@@ -23,6 +23,12 @@ feature 'User session' do
 		expect(page).to have_content('This email is already taken')
 	end
 
+	scenario 'with an Chitter handle that already exists' do
+		expect{ sign_up }.to change(User, :count).by(1)
+		expect{ sign_up }.to change(User, :count).by(0)
+		expect(page).to have_content('This Chitter name is already taken')
+	end
+
 	def sign_up(name = 'Steph',
 				handle = '@steph',
 				email = 'steph@test.com',
