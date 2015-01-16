@@ -7,9 +7,7 @@ feature 'User browses the list of cheeps' do
 
 	before(:each) {
 
-		Cheep.create(name: 'Steph',
-					handle: '@steph',
-					content: 'Hello Chitter')
+		Cheep.create(content: 'Hello Chitter')
 	}
 
 	scenario 'when opening the home page it should display the cheep' do
@@ -27,4 +25,4 @@ feature 'User browses the list of cheeps' do
 		expect(page).to have_content('@steph')
 	end
 
-end
+end 
