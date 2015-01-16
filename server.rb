@@ -15,17 +15,6 @@ class Chitter < Sinatra::Base
 	enable :sessions
 	set :session_Secret, 'super secret'
 
-  get '/' do
-    @cheeps = Cheep.all
-    erb :index
-  end
-
-  post '/cheeps' do
-  	content = params[:content]
-  	Cheep.create(content: content)
-  	redirect '/'
-  end
-
   get '/users/new' do
   	erb :'users/new'
   end
@@ -34,8 +23,20 @@ class Chitter < Sinatra::Base
   	user = User.create(name: params[:name],
   				handle: params[:handle],
   				email: params[:email],
-  				password: params[:password])
+  				password: params[:password],
+  				password_confirmation: params[:password_confirmation])
   	session[:user_id] = user.id
+  	redirect '/'
+  end
+
+  get '/' do
+    @cheeps = Cheep.all
+    erb :index
+  end
+
+  post '/cheeps' do
+  	content = params[:content]
+  	Cheep.create(content: content)
   	redirect '/'
   end
 

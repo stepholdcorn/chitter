@@ -15,14 +15,4 @@ feature 'User browses the list of cheeps' do
 		expect(page).to have_content('Hello Chitter')
 	end
 
-	xscenario 'when opening the home page it should display the user name' do
-		visit '/'
-		expect(page).to have_content('Steph')
-	end
-
-	xscenario 'when opening the home page it should display the chitter handle' do
-		visit '/'
-		expect(page).to have_content('@steph')
-	end
-
 end 
