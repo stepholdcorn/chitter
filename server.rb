@@ -6,14 +6,20 @@ class Chitter < Sinatra::Base
 	env = ENV['RACK_ENV'] || 'development'
 
 	DataMapper.setup(:default, "postgres://localhost:5432/chitter_#{env}")
-	require './lib/peep'
+	require './lib/cheep'
 
 	DataMapper.finalize
 	DataMapper.auto_upgrade!
 
   get '/' do
-    @peeps = Peep.all
+    @cheeps = Cheep.all
     erb :index
+  end
+
+  post '/cheeps' do
+  	content = params[:content]
+  	Cheep.create(content: content)
+  	redirect '/'
   end
 
   # start the server if ruby file executed directly

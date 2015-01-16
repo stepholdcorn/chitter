@@ -1,7 +1,13 @@
+<div id="new-cheep">
+	<form action="/cheeps" method="post">
+		Compose new Cheep: <input type="text" name="content">
+		<input type="submit" value="Cheep">
+	</form
+</div>
+
+
 <ul>
-	<% @peeps.each do |peep| %>
-		<li><%= peep.name %></li>
-		<li><%= peep.handle %></li>
-		<li><%= peep.content %></li>
+	<% @cheeps.each do |cheep| %>
+		<li><%= cheep.content %></li>
 	<% end %>
 </ul>
