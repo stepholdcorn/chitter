@@ -14,7 +14,13 @@ feature 'User session' do
 	scenario 'with a password that does not match' do
 		expect{ sign_up('Steph', '@steph', 'steph@test.com', '1234', '5678') }.to change(User, :count).by(0)
 		expect(current_path).to eq('/users')
-		expect(page).to have_content("Sorry, your passwords did not match")
+		expect(page).to have_content('Password does not match the confirmation')
+	end
+
+	scenario 'with an email that already exists' do
+		expect{ sign_up }.to change(User, :count).by(1)
+		expect{ sign_up }.to change(User, :count).by(0)
+		expect(page).to have_content('This email is already taken')
 	end
 
 	def sign_up(name = 'Steph',
