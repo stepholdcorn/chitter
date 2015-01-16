@@ -13,6 +13,8 @@ feature 'User session' do
 
 	scenario 'with a password that does not match' do
 		expect{ sign_up('Steph', '@steph', 'steph@test.com', '1234', '5678') }.to change(User, :count).by(0)
+		expect(current_path).to eq('/users')
+		expect(page).to have_content("Sorry, your passwords did not match")
 	end
 
 	def sign_up(name = 'Steph',

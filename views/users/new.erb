@@ -1,9 +1,9 @@
 <h1>Sign up</h1>
 
 <form action="/users" method="post">
-	Name: <input type="text" name="name">
-	Username: <input type="text" name="handle">
-	Email: <input type="text" name="email">
+	Name: <input type="text" name="name" value="<%= @user.name %>">
+	Username: <input type="text" name="handle" value="<%= @user.handle %>">
+	Email: <input type="text" name="email" value="<%= @user.email %>">
 	Password: <input type="password" name="password">
 	Confirm password: <input type="password" name="password_confirmation">
 	<input type="submit" value="Sign up for Chitter">
