@@ -1,8 +1,11 @@
 ENV['RACK_ENV'] = 'test'
 require './server'
 require 'database_cleaner'
+require 'capybara/rspec'
 
 RSpec.configure do |config|
+
+	Capybara.app = Chitter
 
 	config.expect_with :rspec do |expectations|
 	    expectations.include_chain_clauses_in_custom_matcher_descriptions = true
