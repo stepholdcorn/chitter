@@ -2,6 +2,7 @@
 	<div id="new-cheep">
 		<form action="/cheeps" method="post">
 			Compose new Cheep: <input type="text" name="content">
+			<% created_at = Time.now %>
 			<input type="submit" value="Cheep">
 		</form>
 	</div>
@@ -11,6 +12,7 @@
 	<% @cheeps.each do |cheep| %>
 		<li>
 			<%= cheep.content %>
+			<%= cheep.created_at.strftime '%a' %> at <%= cheep.created_at.strftime '%l.%M%P' %>
 		</li>
 	<% end %>
 </ul>

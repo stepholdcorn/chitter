@@ -13,6 +13,9 @@ class Chitter < Sinatra::Base
 	use Rack::Flash
   use Rack::MethodOverride
 
+    DataMapper.auto_migrate!
+
+
   get '/users/new' do
   	@user = User.new
   	erb :'users/new'

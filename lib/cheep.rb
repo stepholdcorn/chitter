@@ -4,5 +4,6 @@ class Cheep
 
 	property :id, Serial
 	property :content, Text
+	property :created_at, Time
 
 end
