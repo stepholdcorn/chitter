@@ -11,6 +11,7 @@ class Chitter < Sinatra::Base
 	enable :sessions
 	set :session_secret, 'super secret'
 	use Rack::Flash
+  use Rack::MethodOverride
 
   get '/users/new' do
   	@user = User.new
@@ -57,6 +58,12 @@ class Chitter < Sinatra::Base
   	content = params[:content]
   	Cheep.create(content: content)
   	redirect '/'
+  end
+
+  delete '/sessions' do
+    flash[:notice] = 'Good bye'
+    session[:user_id] = nil
+    redirect '/'
   end
 
   helpers do

@@ -27,6 +27,13 @@ feature 'User sign in/out' do
 		expect(page).not_to have_content('Welcome to Chitter @steph')
 	end
 
+	scenario 'sign out' do
+		sign_in('steph@test.com', '1234')
+		click_button 'Sign out'
+		expect(page).to have_content('Good bye')
+		expect(page).not_to have_content('Welcome to Chitter @steph')
+	end
+
 	def sign_in(email, password)
 		visit '/sessions/new'
 		fill_in 'email', with: email
