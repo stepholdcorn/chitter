@@ -1,10 +1,11 @@
-<div id="new-cheep">
-	<form action="/cheeps" method="post">
-		Compose new Cheep: <input type="text" name="content">
-		<input type="submit" value="Cheep">
-	</form
-</div>
-
+<% if current_user %>
+	<div id="new-cheep">
+		<form action="/cheeps" method="post">
+			Compose new Cheep: <input type="text" name="content">
+			<input type="submit" value="Cheep">
+		</form>
+	</div>
+<% end %>
 
 <ul>
 	<% @cheeps.each do |cheep| %>

@@ -34,6 +34,12 @@ feature 'User sign in/out' do
 		expect(page).not_to have_content('Welcome to Chitter @steph')
 	end
 
+	scenario 'should not be able to cheep when signed out' do
+		sign_in('steph@test.com', '1234')
+		click_button 'Sign out'
+		expect(page).not_to have_content('Compose new Cheep')
+	end
+
 	def sign_in(email, password)
 		visit '/sessions/new'
 		fill_in 'email', with: email
