@@ -1,7 +1,26 @@
-Please sign in.
+<div id="welcome-box">
+	<h1>Sign in to Chitter</h1>
 
-<form action="/sessions" method="post">
-	Email: <input type="text" name="email">
-	Password: <input type="password" name="password">
-	<input type="submit" value="Sign in">
-</form>
+	<p id="description">
+		Connect with your friends — and other fascinating people. Get in-the-moment updates on the things that interest you. And watch events unfold, in real time, from every angle.
+	</p>
+</div>
+
+<div id="sign-up">
+	<div class="container">
+		&nbsp;<p class="prompt" >Sign in<p>
+	  <form action="/sessions" method="post">
+	    
+	    <div class="form-group">
+	     	<input type="text" class="form-control" name="email" placeholder="Email">
+	    </div>
+	    <div class="form-group">
+	     	<input type="password" class="form-control" name="password" placeholder="Password">
+	    </div>
+	    <div class="checkbox">
+	      <label><input type="checkbox"> Remember me</label>
+	    </div>
+	    <button type="submit" class="btn btn-primary">Sign in</button>
+	  </form>
+	</div>
+</div>
