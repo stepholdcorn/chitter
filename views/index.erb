@@ -1,7 +1,7 @@
 <% if current_user %>
 	<div id="new-cheep">
 		<form action="/cheeps" method="post">
-			Compose new Cheep: <input type="text" name="content">
+			<input type="text" name="content" placeholder="What's happening?">
 			<% created_at = Time.now %>
 			<input type="submit" class ="btn btn-primary" value="Cheep">
 		</form>

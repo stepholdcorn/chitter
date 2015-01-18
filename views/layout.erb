@@ -6,21 +6,43 @@
     <link href="/stylesheets/styling.css" rel="stylesheet">
 	</head>
 
-<header>
-  <div id="logo"><img src='/images/logo.png' alt='Chitter'>&nbsp;&nbsp;&nbsp;&nbsp;Chitter</div>
-</header>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+<!--  <a class="navbar-brand" href="/">
+        <img alt="Logo" src="/images/logo.jpg">
+      </a> -->
+      <p class="navbar-text">Chitter</p>
+    </div>
+
+    <% if current_user %>
+
+      <form class="navbar-form navbar-right" action="/sessions" method="post">
+          <div class="form-group">
+            <input type="hidden" name="_method" value="delete">
+          </div>
+        <input type="submit" class ="btn btn-primary" value="Sign out">
+      </form>
+
+    <% else %>
+
+      <form class="navbar-form navbar-right" action="/sessions/new" method="get">
+        <input type="submit" class ="btn btn-primary" value="Sign in">
+      </form>
+
+    <% end %>
+
+  </div>
+</nav>
+
 
   <body>
     <div class="container" style="padding: 20px;">
   		<span id="welcome-message">
         <% if current_user %>
-  			Welcome to Chitter <%= current_user.handle %>
+  			  Welcome to Chitter <%= current_user.handle %>
+        <% end %>
       </span>
-        <form action="/sessions" method="post">
-          <input type="hidden" name="_method" value="delete">
-          <input type="submit" class ="btn btn-primary" value="Sign out">
-        </form>
-  		<% end %>
 
       <% if flash[:notice] %>
         <div id="notice">
@@ -38,5 +60,6 @@
       <% end %>
       
       <%= yield %>
+    </div>
   </body>
 </html>

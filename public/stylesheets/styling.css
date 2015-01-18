@@ -3,14 +3,17 @@ body {
 	background-color: black;
 }
 
-header {
-	width: 100%;
-	height: 40px;
+.navbar-default {
+	
 	background-color: white;
+
+}
+
+.navbar-text {
+
 	color: gray;
 	font-size: 20px;
-	display: flex;
-	padding: 0 5px;
+	font-weight: bold;
 
 }
 
@@ -44,5 +47,28 @@ ul {
 
 	font-size: 18px
 
+}
+
+.btn-primary {
+
+	background-color: #55acee;
+	border-color: #55acee;
+}
+
+.navbar-btn {
+
+	color: white;
+}
+
+#new-cheep {
+
+	color: gray;
+
+}
+
+#welcome-message {
+
+	font-size: 24px;
+	color: #55acee;
 }
 
