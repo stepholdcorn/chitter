@@ -2,14 +2,23 @@
 <html>
 	<head>
 		<meta charset='UTF-8' />
-		<title>Chitter</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/styling.css" rel="stylesheet">
 	</head>
+
+<header>
+  <div id="logo"><img src='/images/logo.png' alt='Chitter'>&nbsp;&nbsp;&nbsp;&nbsp;Chitter</div>
+</header>
+
   <body>
-  		<% if current_user %>
+    <div class="container" style="padding: 20px;">
+  		<span id="welcome-message">
+        <% if current_user %>
   			Welcome to Chitter <%= current_user.handle %>
+      </span>
         <form action="/sessions" method="post">
           <input type="hidden" name="_method" value="delete">
-          <input type="submit" value="Sign out">
+          <input type="submit" class ="btn btn-primary" value="Sign out">
         </form>
   		<% end %>
 

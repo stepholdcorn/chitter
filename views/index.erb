@@ -3,17 +3,22 @@
 		<form action="/cheeps" method="post">
 			Compose new Cheep: <input type="text" name="content">
 			<% created_at = Time.now %>
-			<input type="submit" value="Cheep">
+			<input type="submit" class ="btn btn-primary" value="Cheep">
 		</form>
 	</div>
 <% end %>
 
-<ul>
-	<% @cheeps.each do |cheep| %>
-		<li>
-			<%= cheep.content %>
-			<%= cheep.user_id %>
-			<%= cheep.created_at.strftime '%a' %> at <%= cheep.created_at.strftime '%l.%M%P' %>
-		</li>
-	<% end %>
-</ul>
+
+<div class="jumbotron">
+	<ul>
+		<% @cheeps.each do |cheep| %>
+			<li>
+				<div class="username"><%= cheep.user_id %>&nbsp;&nbsp;</div> 
+				<div class="timestamp">
+					<%= cheep.created_at.strftime '%a' %> at <%= cheep.created_at.strftime '%l.%M%P' %>
+				</div>
+				<div class="content"><%= cheep.content %></p></div>
+			</li>
+		<% end %>
+	</ul>
+</div>
