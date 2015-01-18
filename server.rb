@@ -13,9 +13,6 @@ class Chitter < Sinatra::Base
 	use Rack::Flash
   use Rack::MethodOverride
 
-    DataMapper.auto_migrate!
-
-
   get '/users/new' do
   	@user = User.new
   	erb :'users/new'
@@ -59,7 +56,7 @@ class Chitter < Sinatra::Base
 
   post '/cheeps' do
   	content = params[:content]
-  	Cheep.create(content: content)
+  	Cheep.create(content: content, user_id: current_user.id)
   	redirect '/'
   end
 

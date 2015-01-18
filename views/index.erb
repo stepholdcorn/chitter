@@ -12,6 +12,7 @@
 	<% @cheeps.each do |cheep| %>
 		<li>
 			<%= cheep.content %>
+			<%= cheep.user_id %>
 			<%= cheep.created_at.strftime '%a' %> at <%= cheep.created_at.strftime '%l.%M%P' %>
 		</li>
 	<% end %>
