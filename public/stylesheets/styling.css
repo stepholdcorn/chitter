@@ -73,6 +73,9 @@ ul {
 .jumbotron {
 
 	width: 50em;
+	position: fixed;
+    top: 15em;
+    left: 20em;
 
 }
 
@@ -110,13 +113,20 @@ ul {
 
 #new-cheep {
 
-	color: gray;
+	width: 40em;
+	position: fixed;
+    top: 11em;
+    left: 38em;
 
 }
 
 #welcome-message {
 
+	position: fixed;
+    top: 3em;
+    left: 20em;
 	font-size: 24px;
-	color: #55acee;
+	color: white;
+	font-weight: bold;
 }
 
