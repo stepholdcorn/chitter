@@ -9,9 +9,6 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-<!--  <a class="navbar-brand" href="/">
-        <img alt="Logo" src="/images/logo.jpg">
-      </a> -->
       <p class="navbar-text">Chitter</p>
     </div>
 
@@ -27,7 +24,7 @@
     <% else %>
 
       <form class="navbar-form navbar-right" action="/sessions/new" method="get">
-        <input type="submit" class ="btn btn-primary" value="Sign in">
+        <input type="submit" class ="btn btn-primary" value="Log in">
       </form>
 
     <% end %>
@@ -45,7 +42,7 @@
       </span>
 
       <% if flash[:notice] %>
-        <div id="notice">
+        <div id="welcome-message">
           <%= flash[:notice] %>
         </div>
       <% end %>

@@ -1,10 +1,37 @@
-<h1>Sign up</h1>
+	<div id="welcome-box">
+		<h1>Welcome to Chitter</h1>
 
-<form action="/users" method="post">
-	Name: <input type="text" name="name" value="<%= @user.name %>">
-	Username: <input type="text" name="handle" value="<%= @user.handle %>">
-	Email: <input type="text" name="email" value="<%= @user.email %>">
-	Password: <input type="password" name="password">
-	Confirm password: <input type="password" name="password_confirmation">
-	<input type="submit" value="Sign up for Chitter">
-</form>
+		<p id="description">
+			Connect with your friends — and other fascinating people. Get in-the-moment updates on the things that interest you. And watch events unfold, in real time, from every angle.
+		</p>
+	</div>
+
+
+<div id="sign-up">
+	<div class="container">
+		&nbsp;<p class="prompt" > New to Chitter? Sign up <p>
+	  <form action="/users" method="post">
+	    <div class="form-group">
+	      	<input type="text" class="form-control" name="name" placeholder="Name" value="<%= @user.name %>">
+	    </div>
+	    <div class="form-group">
+	     	<input type="text" class="form-control" name="handle" placeholder="Username" value="<%= @user.handle %>">
+	    </div>
+	    <div class="form-group">
+	     	<input type="text" class="form-control" name="email" placeholder="Email" value="<%= @user.email %>">
+	    </div>
+	    <div class="form-group">
+	     	<input type="password" class="form-control" name="password" placeholder="Password">
+	    </div>
+	    <div class="form-group">
+	     	<input type="password" class="form-control" name="password_confirmation" placeholder="Confirm password">
+	    </div>
+	    <div class="checkbox">
+	      <label><input type="checkbox"> Remember me</label>
+	    </div>
+	    <button type="submit" class="btn btn-warning">Sign up for Chitter</button>
+	  </form>
+	</div>
+</div>
+
+

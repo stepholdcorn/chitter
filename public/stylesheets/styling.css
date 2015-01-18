@@ -1,6 +1,7 @@
 body {
 
-	background-color: black;
+	background-image: url("/images/main.jpg");
+	background-repeat: no-repeat;
 }
 
 .navbar-default {
@@ -15,6 +16,53 @@ body {
 	font-size: 20px;
 	font-weight: bold;
 
+}
+
+#welcome-box {
+
+	max-width: 40em;
+	padding-left: 10em;
+	padding-top: 3em;
+}
+
+h1 {
+
+	color: white;
+	font-weight: bold;
+}
+
+#description {
+
+	color: white;
+	font-size: 18px;
+	line-height: 160%;
+}
+
+#sign-up {
+
+	max-width: 22em;
+	background-color: white;
+	border-radius: 15px;
+	position: fixed;
+    top: 12em;
+    right: 14em;
+}
+
+.form-group {
+
+	max-width: 20em;
+}
+
+.prompt {
+
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.btn-warning {
+
+	color: black;
+	font-weight: bold;
 }
 
 ul {
