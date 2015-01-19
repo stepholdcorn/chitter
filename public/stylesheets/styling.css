@@ -103,6 +103,14 @@ ul {
 
 }
 
+.handle {
+
+	font-size: 18px;
+	color: gray;
+	float: left;
+
+}
+
 .timestamp {
 
 	font-size: 18px;

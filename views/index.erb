@@ -13,7 +13,8 @@
 	<ul>
 		<% @cheeps.each do |cheep| %>
 			<li>
-				<div class="username"><%= cheep.user_id %>&nbsp;&nbsp;</div> 
+				<div class="username"><%= cheep.user.name %>&nbsp;&nbsp;</div> 
+				<div class="handle"><%= cheep.user.handle %>&nbsp;&nbsp;</div>
 				<div class="timestamp">
 					<%= cheep.created_at.strftime '%a' %> at <%= cheep.created_at.strftime '%l.%M%P' %>
 				</div>

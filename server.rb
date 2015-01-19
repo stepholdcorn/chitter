@@ -18,12 +18,18 @@ class Chitter < Sinatra::Base
   	erb :'users/new'
   end
 
+  before do 
+    params.each do |key, value|
+      instance_variable_set "@#{key}", value
+    end
+  end
+
   post '/users' do
-  	@user = User.create(name: params[:name],
-  				handle: params[:handle],
-  				email: params[:email],
-  				password: params[:password],
-  				password_confirmation: params[:password_confirmation])
+  	@user = User.create(name: @name,
+  				handle: @handle,
+  				email: @email,
+  				password: @password,
+  				password_confirmation: @password_confirmation)
   	if @user.save
   		session[:user_id] = @user.id
   		redirect '/'
@@ -38,13 +44,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/sessions' do
-    email, password = params[:email], params[:password]
-    user = User.authenticate(email, password)
+    user = User.authenticate(@email, @password)
     if user
       session[:user_id] = user.id
       redirect '/'
     else
-      flash[:errors] = ['The email or password is not correct']
+      flash.now[:errors] = ['The email or password is not correct']
       erb :'sessions/new'
     end
   end
@@ -56,7 +61,9 @@ class Chitter < Sinatra::Base
 
   post '/cheeps' do
   	content = params[:content]
-  	Cheep.create(content: content, user_id: current_user.id)
+  	cheep = Cheep.new(content: content)
+    cheep.user = current_user
+    cheep.save
   	redirect '/'
   end
 
