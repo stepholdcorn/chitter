@@ -42,14 +42,16 @@
       </span>
 
       <% if flash[:notice] %>
-        <div id="welcome-message">
+        <div id="goodbye-message">
           <%= flash[:notice] %>
         </div>
       <% end %>
 
       <% if flash[:errors] && !flash[:errors].empty? %>
-        Sorry, there were the following problems with the form.
-        <ul id="errors">
+        <div class="alert">
+          Sorry, there were the following problems with the form
+        </div>
+        <ul class="errors">
           <% flash[:errors].each do |error| %>
             <li><%= error %></li>
           <% end %>

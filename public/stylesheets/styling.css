@@ -70,6 +70,22 @@ ul {
     list-style-type: none;
 }
 
+.alert {
+
+	color: white;
+	position: fixed;
+    top: 6em;
+    left: 53em;
+}
+
+.errors {
+
+	color: white;
+	position: fixed;
+    top: 9em;
+    left: 55em;
+}
+
 .jumbotron {
 
 	width: 50em;
@@ -125,6 +141,16 @@ ul {
 	position: fixed;
     top: 3em;
     left: 20em;
+	font-size: 24px;
+	color: white;
+	font-weight: bold;
+}
+
+#goodbye-message {
+
+	position: fixed;
+    top: 3em;
+    left: 24em;
 	font-size: 24px;
 	color: white;
 	font-weight: bold;
