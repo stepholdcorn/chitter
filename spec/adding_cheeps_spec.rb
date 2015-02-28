@@ -1,8 +1,6 @@
-require 'spec_helper'
-
 feature 'User can see a cheep' do
-		'In order to share my ideas' 
-		'As a Maker' 
+		'In order to share my ideas'
+		'As a Maker'
 		'I want to post a cheep'
 
 	before(:each) do
@@ -32,20 +30,6 @@ feature 'User can see a cheep' do
 		click_button 'Sign out'
 		visit '/'
 		expect(page).to have_content('Hello Chitter')
-	end
-
-	def sign_in(email, password)
-		visit '/sessions/new'
-		fill_in 'email', with: email
-		fill_in 'password', with: password
-		click_button 'Sign in'
-	end
-
-	def add_cheep(content)
-		within('#new-cheep') do
-			fill_in 'content', with: content
-			click_button 'Cheep'
-		end
 	end
 
 end

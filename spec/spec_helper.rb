@@ -29,3 +29,32 @@ RSpec.configure do |config|
 	end
 
 end
+
+def sign_in(email, password)
+	visit '/sessions/new'
+	fill_in 'email', with: email
+	fill_in 'password', with: password
+	click_button 'Sign in'
+end
+
+def add_cheep(content)
+	within('#new-cheep') do
+		fill_in 'content', with: content
+		click_button 'Cheep'
+	end
+end
+
+def sign_up(name = 'Steph',
+			handle = '@steph',
+			email = 'steph@test.com',
+			password = '1234',
+			password_confirmation = '1234')
+	visit '/users/new'
+	expect(page.status_code).to eq(200)
+	fill_in :name, with: name
+	fill_in :handle, with: handle
+	fill_in :email, with: email
+	fill_in :password, with: password
+	fill_in :password_confirmation, with: password_confirmation
+	click_button 'Sign up for Chitter'
+end

@@ -1,8 +1,6 @@
-require 'spec_helper'
-
 feature 'User sign in/out' do
-		'In order to use Chitter' 
-		'As a Maker' 
+		'In order to use Chitter'
+		'As a Maker'
 		'I want to be able to log in and out'
 
 	before(:each) do
@@ -38,13 +36,6 @@ feature 'User sign in/out' do
 		sign_in('steph@test.com', '1234')
 		click_button 'Sign out'
 		expect(page).not_to have_content('What\'s happening?')
-	end
-
-	def sign_in(email, password)
-		visit '/sessions/new'
-		fill_in 'email', with: email
-		fill_in 'password', with: password
-		click_button 'Sign in'
 	end
 
 end
